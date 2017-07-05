@@ -29,15 +29,19 @@
     <script src="vendor/system.js"></script>
     <script>
         SystemJS.config({
+            
             packages: {
                 'js': {
-                    main: 'ts/main.js',
-                    forrmat: 'system',
+                    main: 'main',
+                    defaultExtension: 'js'
+                },
+                'js/utils': {
+                    main: 'index',
                     defaultExtension: 'js'
                 }
             }
         })
-        SystemJS.import('js/ts/main.js')
+        SystemJS.import('js')
             .then(
                 console.info.bind(console, 'success'), 
                 console.error.bind(console)

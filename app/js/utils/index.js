@@ -1,4 +1,4 @@
-System.register(["./describeArc", "./downloadSVG", "./polarToCartesian"], function (exports_1, context_1) {
+System.register(["./describeArc", "./downloadSVG", "./polarToCartesian", "./positionText"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     return {
@@ -16,6 +16,11 @@ System.register(["./describeArc", "./downloadSVG", "./polarToCartesian"], functi
             function (polarToCartesian_1_1) {
                 exports_1({
                     "polarToCartesian": polarToCartesian_1_1["polarToCartesian"]
+                });
+            },
+            function (positionText_1_1) {
+                exports_1({
+                    "positionText": positionText_1_1["positionText"]
                 });
             }
         ],

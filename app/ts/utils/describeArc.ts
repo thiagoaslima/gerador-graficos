@@ -9,7 +9,9 @@ export function describeArc(x: number, y: number, radius: number, startAngle: nu
 
     const d = [
         'M', start.x, start.y,
-        'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y
+        'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+        'L', x, y,
+        'L', start.x, start.y
     ].join(' ');
 
     return d;

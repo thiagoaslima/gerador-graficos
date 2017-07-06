@@ -17,6 +17,8 @@ export function downloadSVG(svgEl: SVGElement, anchor: HTMLAnchorElement) {
     // convert svg source to URI data scheme.
     const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(source);
 
+    anchor.hreflang = 'image/svg+xml';
+    anchor.title ='file.svg';
     // set url value to a element's href attribute.
     anchor.href = url;
 

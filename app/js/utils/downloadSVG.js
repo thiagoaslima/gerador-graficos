@@ -15,6 +15,8 @@ System.register([], function (exports_1, context_1) {
         source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
         // convert svg source to URI data scheme.
         var url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(source);
+        anchor.hreflang = 'image/svg+xml';
+        anchor.title = 'file.svg';
         // set url value to a element's href attribute.
         anchor.href = url;
         // you can download svg file by right click menu.

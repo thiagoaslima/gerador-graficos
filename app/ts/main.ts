@@ -1,13 +1,14 @@
 import { describeArc, downloadSVG, positionText } from './utils';
 import { dados } from './dados/exemplo1';
+import { setFormHandler } from './formulario/formulario';
 
 function createSVGCircle(radius: number, dados: {label: string, value: string}[]): SVGSVGElement {
     const colors = ['red', 'blue', 'green', 'gray', 'orange'];
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', `0 0 ${radius * 10} ${radius * 10}`);
-    svg.setAttribute('width', radius * 10 + 'px');
-    svg.setAttribute('height', radius * 10 + 'px');
+    svg.setAttribute('viewBox', `0 0 ${radius * 4} ${radius * 4}`);
+    svg.setAttribute('width', radius * 4 + 'px');
+    svg.setAttribute('height', radius * 4 + 'px');
 
     let startAngle: number;
 
@@ -24,7 +25,7 @@ function createSVGCircle(radius: number, dados: {label: string, value: string}[]
         } else {
             endAngle = 360 * perc + startAngle;
         }
-        const arc = describeArc(radius * 5, radius * 5, radius, startAngle, endAngle);
+        const arc = describeArc(radius * 2, radius * 2, radius, startAngle, endAngle);
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', arc);
         path.setAttribute('fill', colors[idx]);
@@ -32,9 +33,9 @@ function createSVGCircle(radius: number, dados: {label: string, value: string}[]
 
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         const span = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-        const position = positionText(radius * 5, radius * 5, radius, startAngle, endAngle);
+        const position = positionText(radius * 2, radius * 2, radius, startAngle, endAngle);
         span.textContent = label + ' ' + perc + '%';
-        span.setAttribute('text-anchor', position.x >= radius * 5 ? 'start' : 'end');
+        span.setAttribute('text-anchor', position.x >= radius * 2 ? 'start' : 'end');
         text.appendChild(span);
 
         text.setAttribute('x', position.x.toString(10));
@@ -60,7 +61,7 @@ anchor.href = '';
 
 downloadSVG(svg, anchor);
 
-document.body.appendChild(svg);
 document.body.appendChild(anchor);
+document.body.appendChild(svg);
 
-
+setFormHandler();

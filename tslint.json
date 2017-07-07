@@ -1,0 +1,8 @@
+{
+    "jsEnable": true,
+    "exclude": [
+        "node_modules",
+        "node_modules/**/*.js",
+        "node_modules/**/*.ts"
+    ]
+}

@@ -4,7 +4,7 @@ export function positionText(x: number, y: number, radius: number, startAngle: n
     const angle = (endAngle - startAngle) / 2 + startAngle;
     let multiplier = 1.1;
 
-    if ( 
+    if (
         (angle >= 0 && angle < 15) ||
         (angle > 165 && angle < 195) ||
         (angle > 345 && angle <= 360)

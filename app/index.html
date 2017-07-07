@@ -13,13 +13,19 @@
 
     <title>Gráficos</title>
 
-    <link rel="stylesheet" href="styles/typography.css">
-    <link rel="stylesheet" href="styles/geral.css">
+    <style>
+        a {display: block;}
+    </style>
     
 </head>
 <body>
     <div>
         <h2>Gráficos</h2>
+
+        <form id="send-file" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+            <input type="file" name="csv" />
+            <input type="submit" name="Enviar"/>
+        </form>
 
         <div id="grafico" class="grafico">
             
@@ -38,6 +44,9 @@
                 'js/utils': {
                     main: 'index',
                     defaultExtension: 'js'
+                },
+                'jquery': {
+                    main: '../vendor/jquery.min.js'
                 }
             }
         })

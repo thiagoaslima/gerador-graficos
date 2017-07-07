@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run server | npm run app",
     "app": "http-server ./app -o -c -1",
-    "server": "node ./server/server.js",
+    "server": "node --inspect ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

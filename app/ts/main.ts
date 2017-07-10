@@ -1,6 +1,10 @@
 import { describeArc, downloadSVG, positionText } from './utils';
 import { dados } from './dados/exemplo1';
-import { setFormHandler } from './formulario/formulario';
+import { setFormHandler } from './formulario/formulario_function';
+import { formulario } from './start/createFormulario';
+import { describeArc, downloadSVG, positionText } from './utils';
+import { dados } from './dados/exemplo1';
+import { setFormHandler } from './formulario/formulario_function';
 
 function createSVGCircle(radius: number, dados: {label: string, value: string}[]): SVGSVGElement {
     const colors = ['red', 'blue', 'green', 'gray', 'orange'];
@@ -63,5 +67,7 @@ downloadSVG(svg, anchor);
 
 document.body.appendChild(anchor);
 document.body.appendChild(svg);
+
+document.body.appendChild(formulario.formEl);
 
 setFormHandler();

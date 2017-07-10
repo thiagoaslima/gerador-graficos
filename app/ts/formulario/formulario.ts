@@ -1,20 +1,53 @@
-import jQuery from 'jquery';
+import { FileUploader } from './FileUploader';
 
-export function setFormHandler() {
-    jQuery('form').submit(function (evt) {
-        evt.preventDefault();
-        const form: HTMLFormElement = document.getElementsByTagName('form')[0];
+export class Formulario {
+    private _charset = 'UTF-8';
+    set charset(charset: string) {
+        this.formEl.setAttribute('accept-charset', charset);
+        this._charset = charset;  
+    }
+    get charset() {
+        return this._charset;
+    } 
+    
+    private _enctype="multipart/form-data"
+    set enctype(enctype: string) {
+        this.formEl.setAttribute('enctype', enctype);
+        this._enctype = enctype;  
+    }
+    get enctype() {
+        return this._enctype;
+    } 
 
-        jQuery.ajax({
-            type: 'POST',
-            url: "http://127.0.0.1:3001/csv",
-            data: new FormData(form),
-            processData: false,
-            contentType: false,
-            success: function (returnval) {
-                console.log(returnval);
-            }
+    private _fileUploader: FileUploader;
+
+    constructor(
+        public formEl: HTMLFormElement,
+        opts?: {
+            order: string[],
+            fileUploader: FileUploader
+        }
+    ) {
+        this._fileUploader = (opts && opts.fileUploader) || null;
+
+        opts.order.forEach(key => {
+            opts[key].render();
         });
 
-    });
+        this.charset = this.formEl.getAttribute('accept-charset') || this._charset;
+        this.enctype = this.formEl.getAttribute('enctype') || this._enctype;
+    }
+
+    appendInput(inputs: { order?: string[], [elemento: string]: any }) {
+        if (inputs.fileUploader) {
+            this._fileUploader = inputs.fileUploader;
+        }
+
+        if (inputs.order) {
+            inputs.order.forEach(key => {
+                inputs[key]['render']();
+            });
+        }
+    }
+
 }

@@ -5,10 +5,6 @@ export function setFormHandler() {
         evt.preventDefault();
         const form: HTMLFormElement = document.getElementsByTagName('form')[0];
 
-        jQuery.post('http://127.0.0.1:3001/csv', jQuery(this).serialize())
-            .then(res => console.log(res));
-
-
         jQuery.ajax({
             type: 'POST',
             url: "http://127.0.0.1:3001/csv",

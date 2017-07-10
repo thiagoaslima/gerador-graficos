@@ -5,8 +5,6 @@ System.register(["jquery"], function (exports_1, context_1) {
         jquery_1.default('form').submit(function (evt) {
             evt.preventDefault();
             var form = document.getElementsByTagName('form')[0];
-            jquery_1.default.post('http://127.0.0.1:3001/csv', jquery_1.default(this).serialize())
-                .then(function (res) { return console.log(res); });
             jquery_1.default.ajax({
                 type: 'POST',
                 url: "http://127.0.0.1:3001/csv",
